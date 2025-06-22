@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Navigation from './components/Navigation';
 import Dashboard from './components/Dashboard';
 import ExpenseList from './components/ExpenseList';
-import AddExpense from './components/AddExpense';
+import AddExpense from './components/AddExpense.tsx';
 import { useTheme } from './hooks/useTheme';
 
 function App() {
@@ -22,11 +22,12 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDark 
-        ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' 
-        : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
-    }`}>
+    <div className={`min-h-screen w-full transition-colors duration-100
+      bg-gradient-to-br
+      ${isDark 
+        ? 'from-slate-900 via-slate-800 to-slate-900'
+        : 'from-gray-100 via-white to-gray-200'}
+    `}>
       <Navigation
         activeTab={activeTab}
         setActiveTab={setActiveTab}

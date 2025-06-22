@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart3, PlusCircle, List, Crown, Moon, Sun, TrendingUp, Settings, User, Menu } from 'lucide-react';
+import { BarChart3, PlusCircle, List, Crown, Moon, Sun, TrendingUp,} from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 
 interface NavigationProps {
@@ -17,26 +17,37 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab, onAddE
   ];
 
   return (
-    <header className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-gray-200/50 dark:border-slate-700/50 sticky top-0 z-50">
+    <header className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-blue-200/50 dark:border-amber-700/50 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo and Brand */}
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-4">
               <div className="relative group">
-                <div className="h-12 w-12 bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 rounded-2xl flex items-center justify-center shadow-xl shadow-amber-500/25 group-hover:shadow-amber-500/40 transition-all duration-300">
+                <div className="h-12 w-12 
+                  bg-gradient-to-br from-blue-700 via-sky-700 to-blue-600
+                  dark:from-amber-400 dark:via-yellow-500 dark:to-amber-500
+                  rounded-2xl flex items-center justify-center shadow-xl 
+                  shadow-blue-700/25 group-hover:shadow-blue-700/35
+                  dark:shadow-amber-500/25 dark:group-hover:shadow-amber-500/40
+                  transition-all duration-300">
                   <Crown className="h-7 w-7 text-white group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <div className="absolute -top-1 -right-1 h-4 w-4 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full flex items-center justify-center animate-pulse">
+                <div className="absolute -top-1 -right-1 h-4 w-4 
+                  bg-gradient-to-r from-emerald-400 to-green-500
+                  rounded-full flex items-center justify-center animate-pulse">
                   <TrendingUp className="h-2.5 w-2.5 text-white" />
                 </div>
               </div>
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-700 dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 bg-clip-text text-transparent">
-                  LuxeTracker
+                <h1 className="text-3xl font-bold 
+                  bg-gradient-to-r from-blue-700 via-sky-700 to-blue-600
+                  dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500
+                  bg-clip-text text-transparent">
+                  WalletWise
                 </h1>
-                <p className="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wide uppercase">
-                  Premium Finance Management
+                <p className="text-s text-blue-500 dark:text-amber-300 font-medium tracking-wide uppercase">
+                  Finance Management
                 </p>
               </div>
             </div>
@@ -53,16 +64,16 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab, onAddE
                     onClick={() => setActiveTab(item.id)}
                     className={`group relative flex items-center space-x-3 px-6 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 ${
                       activeTab === item.id
-                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-white shadow-lg shadow-amber-500/30 scale-105'
-                        : 'text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50/80 dark:hover:bg-slate-800/80 hover:scale-105'
+                        ? 'bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-lg shadow-blue-500/30 scale-105 dark:from-amber-500 dark:to-yellow-600 dark:shadow-amber-500/30'
+                        : 'text-blue-700 dark:text-amber-300 hover:text-blue-900 dark:hover:text-amber-400 hover:bg-blue-50/80 dark:hover:bg-slate-800/80 hover:scale-105'
                     }`}
                   >
                     <Icon className={`h-5 w-5 transition-transform duration-300 ${
                       activeTab === item.id ? 'scale-110' : 'group-hover:scale-110'
                     }`} />
-                    <span className="font-medium">{item.name}</span>
+                    <span className="font-bold text-xl/2">{item.name}</span>
                     {activeTab === item.id && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-yellow-500/20 rounded-2xl animate-pulse" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-sky-500/20 rounded-2xl animate-pulse dark:from-amber-400/20 dark:to-yellow-500/20" />
                     )}
                   </button>
                 );
@@ -101,25 +112,28 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab, onAddE
               </div>
 
               {/* Settings Button */}
-              <button 
+              {/* <button 
                 className="p-3 rounded-2xl text-gray-600 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-slate-800 hover:text-amber-600 dark:hover:text-amber-400 transition-all duration-300 hover:scale-110"
                 title="Settings"
               >
                 <Settings className="h-5 w-5" />
-              </button>
+              </button> */}
 
               {/* Profile Button */}
-              <button 
+              {/* <button 
                 className="p-3 rounded-2xl text-gray-600 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-slate-800 hover:text-amber-600 dark:hover:text-amber-400 transition-all duration-300 hover:scale-110"
                 title="Profile"
               >
                 <User className="h-5 w-5" />
-              </button>
+              </button> */}
 
               {/* Add Transaction Button */}
               <button
                 onClick={onAddExpense}
-                className="group flex items-center space-x-3 bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-700 hover:from-amber-700 hover:via-yellow-700 hover:to-amber-800 text-white px-8 py-3.5 rounded-2xl transition-all duration-300 font-semibold shadow-xl shadow-amber-500/30 hover:shadow-amber-500/50 hover:scale-105 relative overflow-hidden"
+                className="group flex items-center space-x-3 bg-gradient-to-r from-blue-700 via-sky-700 to-blue-600
+                  hover:from-blue-800 hover:via-sky-800 hover:to-blue-700
+                  text-white px-8 py-3.5 rounded-2xl transition-all duration-300 font-semibold shadow-xl shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 relative overflow-hidden
+                  dark:from-amber-600 dark:via-yellow-600 dark:to-amber-700 dark:hover:from-amber-700 dark:hover:via-yellow-700 dark:hover:to-amber-800 dark:shadow-amber-500/30 dark:hover:shadow-amber-500/50"
               >
                 <PlusCircle className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
                 <span className="font-semibold">Add Transaction</span>
@@ -150,9 +164,9 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab, onAddE
             </button>
             
             {/* Mobile Menu */}
-            <button className="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-slate-800">
+            {/* <button className="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-slate-800">
               <Menu className="h-6 w-6" />
-            </button>
+            </button> */} 
           </div>
         </div>
 
@@ -167,8 +181,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab, onAddE
                   onClick={() => setActiveTab(item.id)}
                   className={`flex-1 flex items-center justify-center space-x-2 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                     activeTab === item.id
-                      ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-white shadow-lg shadow-amber-500/30'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50/80 dark:hover:bg-slate-800/80'
+                      ? 'bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-lg shadow-blue-500/30 dark:from-amber-500 dark:to-yellow-600 dark:shadow-amber-500/30'
+                      : 'text-blue-700 dark:text-amber-300 hover:text-blue-900 dark:hover:text-amber-400 hover:bg-blue-50/80 dark:hover:bg-slate-800/80'
                   }`}
                 >
                   <Icon className="h-4 w-4" />
@@ -181,7 +195,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab, onAddE
           {/* Mobile Add Button */}
           <button
             onClick={onAddExpense}
-            className="w-full mt-3 flex items-center justify-center space-x-2 bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-700 text-white py-3 rounded-xl font-semibold shadow-lg shadow-amber-500/30"
+            className="w-full mt-3 flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-700 via-sky-700 to-blue-600 text-white py-3 rounded-xl font-semibold shadow-lg shadow-blue-500/30
+              dark:from-amber-600 dark:via-yellow-600 dark:to-amber-700 dark:shadow-amber-500/30"
           >
             <PlusCircle className="h-4 w-4" />
             <span>Add Transaction</span>

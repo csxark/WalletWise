@@ -1,5 +1,4 @@
-import React from 'react';
-import { TrendingUp, TrendingDown, DollarSign, PiggyBank, Crown, Gem, Star, Award } from 'lucide-react';
+import { TrendingUp, TrendingDown, PiggyBank, Gem, Star, Award } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { useExpenses } from '../hooks/useExpenses';
 
@@ -20,17 +19,17 @@ const Dashboard = () => {
             Financial Dashboard
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-2 font-medium">
-            Your premium financial overview
+            Your financial overview
           </p>
         </div>
         <div className="text-right">
-          <div className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+          <div className="text-lg text-gray-500 dark:text-amber-400 font-extrabold">
             {new Date().toLocaleDateString('en-IN', { month: 'long', year: 'numeric' })}
           </div>
-          <div className="flex items-center space-x-1 text-amber-600 dark:text-amber-400 mt-1">
+          {/* <div className="flex items-center space-x-1 text-amber-600 dark:text-amber-400 mt-1">
             <Crown className="h-4 w-4" />
             <span className="text-sm font-semibold">Premium Account</span>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -43,10 +42,10 @@ const Dashboard = () => {
               <p className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mt-2">
                 ₹{currentMonth.income.toLocaleString('en-IN')}
               </p>
-              <div className="flex items-center space-x-1 mt-2">
+              {/* <div className="flex items-center space-x-1 mt-2">
                 <TrendingUp className="h-3 w-3 text-emerald-500" />
                 <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">+12.5% from last month</span>
-              </div>
+              </div> */}
             </div>
             <div className="h-14 w-14 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/25">
               <TrendingUp className="h-7 w-7 text-white" />
@@ -61,10 +60,10 @@ const Dashboard = () => {
               <p className="text-3xl font-bold text-rose-600 dark:text-rose-400 mt-2">
                 ₹{currentMonth.expenses.toLocaleString('en-IN')}
               </p>
-              <div className="flex items-center space-x-1 mt-2">
+              {/* <div className="flex items-center space-x-1 mt-2">
                 <TrendingDown className="h-3 w-3 text-rose-500" />
                 <span className="text-xs text-rose-600 dark:text-rose-400 font-medium">-3.2% from last month</span>
-              </div>
+              </div> */}
             </div>
             <div className="h-14 w-14 bg-gradient-to-br from-rose-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg shadow-rose-500/25">
               <TrendingDown className="h-7 w-7 text-white" />
@@ -117,10 +116,10 @@ const Dashboard = () => {
         <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-gray-100 dark:border-slate-700 p-8 backdrop-blur-sm">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-xl font-bold text-gray-900 dark:text-white">Monthly Trends</h3>
-            <div className="flex items-center space-x-1 text-amber-600 dark:text-amber-400">
+            {/* <div className="flex items-center space-x-1 text-amber-600 dark:text-amber-400">
               <Crown className="h-4 w-4" />
               <span className="text-sm font-semibold">Premium Analytics</span>
-            </div>
+            </div> */}
           </div>
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
@@ -128,9 +127,9 @@ const Dashboard = () => {
                 <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" className="dark:stroke-slate-600" />
                 <XAxis dataKey="month" stroke="#64748b" className="dark:stroke-slate-400" fontSize={12} />
                 <YAxis stroke="#64748b" className="dark:stroke-slate-400" fontSize={12} />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
                     border: '1px solid #e2e8f0',
                     borderRadius: '12px',
                     boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
@@ -164,10 +163,10 @@ const Dashboard = () => {
         <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-gray-100 dark:border-slate-700 p-8 backdrop-blur-sm">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-xl font-bold text-gray-900 dark:text-white">Expense Categories</h3>
-            <div className="flex items-center space-x-1 text-amber-600 dark:text-amber-400">
+            {/* <div className="flex items-center space-x-1 text-amber-600 dark:text-amber-400">
               <Gem className="h-4 w-4" />
               <span className="text-sm font-semibold">Luxury Insights</span>
-            </div>
+            </div> */}
           </div>
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
@@ -188,9 +187,9 @@ const Dashboard = () => {
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
                     border: '1px solid #e2e8f0',
                     borderRadius: '12px',
                     boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
@@ -208,16 +207,16 @@ const Dashboard = () => {
       <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-gray-100 dark:border-slate-700 p-8 backdrop-blur-sm">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-xl font-bold text-gray-900 dark:text-white">Category Breakdown</h3>
-          <div className="flex items-center space-x-1 text-amber-600 dark:text-amber-400">
+          {/* <div className="flex items-center space-x-1 text-amber-600 dark:text-amber-400">
             <Award className="h-4 w-4" />
             <span className="text-sm font-semibold">Detailed Analysis</span>
-          </div>
+          </div> */}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {categoryData.map((category, index) => (
             <div key={index} className="flex items-center justify-between p-4 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-slate-700 dark:to-slate-600 rounded-xl hover:shadow-lg transition-all duration-200 hover:scale-105">
               <div className="flex items-center space-x-3">
-                <div 
+                <div
                   className="w-5 h-5 rounded-full shadow-sm"
                   style={{ backgroundColor: category.color }}
                 ></div>

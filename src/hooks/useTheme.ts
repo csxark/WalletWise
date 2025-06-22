@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 
 export const useTheme = () => {
   const [isDark, setIsDark] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    // Get initial theme preference
+  // Use useLayoutEffect to apply theme before paint to prevent flash
+  useLayoutEffect(() => {
     const getInitialTheme = () => {
       if (typeof window !== 'undefined') {
         const saved = localStorage.getItem('theme');
@@ -18,54 +18,38 @@ export const useTheme = () => {
     };
 
     const initialTheme = getInitialTheme();
-    
-    // Apply theme immediately to prevent flash
-    const applyTheme = (dark: boolean) => {
-      const root = document.documentElement;
-      if (dark) {
-        root.classList.add('dark');
-      } else {
-        root.classList.remove('dark');
-      }
-    };
 
-    // Set theme synchronously
+    // Apply theme immediately
+    const root = document.documentElement;
+    if (initialTheme) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
     setIsDark(initialTheme);
-    applyTheme(initialTheme);
-    
-    // Mark as loaded after a brief delay to ensure smooth rendering
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 100);
-
-    return () => clearTimeout(timer);
+    setIsLoaded(true);
   }, []);
 
-  useEffect(() => {
-    if (isLoaded) {
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      
-      // Apply theme with transition
-      const root = document.documentElement;
-      root.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-      
-      if (isDark) {
-        root.classList.add('dark');
-      } else {
-        root.classList.remove('dark');
-      }
-
-      // Remove transition after animation
-      setTimeout(() => {
-        root.style.transition = '';
-      }, 300);
+  // Handle theme changes with transition
+  const setTheme = (dark: boolean) => {
+    const root = document.documentElement;
+    root.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+    if (dark) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
     }
-  }, [isDark, isLoaded]);
+    setTimeout(() => {
+      root.style.transition = '';
+    }, 300);
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  };
 
   const toggleTheme = () => {
-    if (isLoaded) {
-      setIsDark(prev => !prev);
-    }
+    setIsDark(prev => {
+      setTheme(!prev);
+      return !prev;
+    });
   };
 
   return { isDark, toggleTheme, isLoaded };

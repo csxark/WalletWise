@@ -1,5 +1,5 @@
-import React from 'react';
-import { Trash2, Calendar, Tag, Crown, Gem } from 'lucide-react';
+
+import { Trash2, Calendar, Tag, Gem } from 'lucide-react';
 import { useExpenses } from '../hooks/useExpenses';
 import { format, parseISO } from 'date-fns';
 
@@ -18,7 +18,7 @@ const ExpenseList = () => {
             Transaction History
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-2 font-medium">
-            Your premium financial records
+            Your financial records
           </p>
         </div>
         <div className="text-right">
@@ -36,10 +36,10 @@ const ExpenseList = () => {
         <div className="p-8">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-xl font-bold text-gray-900 dark:text-white">Recent Activity</h3>
-            <div className="flex items-center space-x-1 text-amber-600 dark:text-amber-400">
+            {/* <div className="flex items-center space-x-1 text-amber-600 dark:text-amber-400">
               <Crown className="h-4 w-4" />
-              <span className="text-sm font-semibold">Premium View</span>
-            </div>
+              <span className="text-sm font-semibold">View</span>
+            </div> */}
           </div>
           
           <div className="space-y-4">

@@ -12,13 +12,13 @@ export const useExpenses = () => {
     } else {
       // Initialize with sample data in Indian Rupees
       const sampleData: Expense[] = [
-        { id: '1', amount: 75000, category: 'Salary', description: 'Monthly salary', date: '2024-01-01', type: 'income' },
-        { id: '2', amount: 8500, category: 'Food & Dining', description: 'Groceries', date: '2024-01-03', type: 'expense' },
+        { id: '1', amount: 75000, category: 'Pocket Money', description: 'Monthly Pocket Money', date: '2024-01-01', type: 'income' },
+        { id: '2', amount: 8500, category: 'Food', description: 'Groceries', date: '2024-01-03', type: 'expense' },
         { id: '3', amount: 2500, category: 'Transportation', description: 'Petrol', date: '2024-01-05', type: 'expense' },
         { id: '4', amount: 1200, category: 'Entertainment', description: 'Movie night', date: '2024-01-07', type: 'expense' },
-        { id: '5', amount: 4500, category: 'Bills & Utilities', description: 'Electricity bill', date: '2024-01-10', type: 'expense' },
-        { id: '6', amount: 75000, category: 'Salary', description: 'Monthly salary', date: '2024-02-01', type: 'income' },
-        { id: '7', amount: 9200, category: 'Food & Dining', description: 'Groceries & dining', date: '2024-02-03', type: 'expense' },
+        { id: '5', amount: 4500, category: 'Utilities', description: 'Electricity bill', date: '2024-01-10', type: 'expense' },
+        { id: '6', amount: 75000, category: 'Pocket Money', description: 'Monthly Pocket Money', date: '2024-02-01', type: 'income' },
+        { id: '7', amount: 9200, category: 'Food', description: 'Groceries', date: '2024-02-03', type: 'expense' },
         { id: '8', amount: 1800, category: 'Transportation', description: 'Public transport', date: '2024-02-05', type: 'expense' },
       ];
       setExpenses(sampleData);
@@ -135,3 +135,5 @@ export const useExpenses = () => {
     getCategoryData
   };
 };
+
+
