@@ -4,7 +4,6 @@ export const useTheme = () => {
   const [isDark, setIsDark] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Use useLayoutEffect to apply theme before paint to prevent flash
   useLayoutEffect(() => {
     const getInitialTheme = () => {
       if (typeof window !== 'undefined') {
