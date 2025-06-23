@@ -30,27 +30,21 @@ export const useTheme = () => {
     setIsLoaded(true);
   }, []);
 
-  // Handle theme changes with transition
+  // Handle theme changes with page reload
   const setTheme = (dark: boolean) => {
-    const root = document.documentElement;
-    root.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-    if (dark) {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    setTimeout(() => {
-      root.style.transition = '';
-    }, 300);
     localStorage.setItem('theme', dark ? 'dark' : 'light');
+    // Reload the page after setting the theme
+    window.location.reload();
   };
 
   const toggleTheme = () => {
     setIsDark(prev => {
-      setTheme(!prev);
-      return !prev;
+      const newTheme = !prev;
+      setTheme(newTheme);
+      return newTheme;
     });
   };
 
   return { isDark, toggleTheme, isLoaded };
 };
+
