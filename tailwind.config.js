@@ -4,6 +4,9 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        'xs': '475px',
+      },
       colors: {
         luxury: {
           gold: '#d4af37',

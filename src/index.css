@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+html, body {
+  background: transparent !important;
+}
+
+#root, #app {
+  min-height: 100vh;
+  width: 100vw;
+}
