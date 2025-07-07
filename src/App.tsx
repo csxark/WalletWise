@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import HomePage from './components/HomePage';
 import Navigation from './components/Navigation';
 import Sidebar from './components/Sidebar';
@@ -9,6 +9,7 @@ import AddExpense from './components/AddExpense';
 import Auth from './components/Auth';
 import { useTheme } from './hooks/useTheme';
 import { useAuth } from './hooks/useAuth';
+import Analytics from './components/Analytics';
 
 function App() {
   const [showHomePage, setShowHomePage] = useState(true);
@@ -117,6 +118,7 @@ function App() {
         isOpen={isAddExpenseOpen}
         onClose={() => setIsAddExpenseOpen(false)}
       />
+      <Analytics />
     </div>
   );
 }
