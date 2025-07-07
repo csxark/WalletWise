@@ -37,6 +37,7 @@ function App() {
           <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">Loading WalletWise</h2>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Preparing your financial experience...</p>
         </div>
+        <Analytics/>
       </div>
     );
   }
@@ -118,7 +119,7 @@ function App() {
         isOpen={isAddExpenseOpen}
         onClose={() => setIsAddExpenseOpen(false)}
       />
-      <Analytics />
+      {/* <Analytics /> */}
     </div>
   );
 }
