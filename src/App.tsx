@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import HomePage from './components/HomePage';
 import Navigation from './components/Navigation';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
@@ -10,6 +11,7 @@ import { useTheme } from './hooks/useTheme';
 import { useAuth } from './hooks/useAuth';
 
 function App() {
+  const [showHomePage, setShowHomePage] = useState(true);
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isAddExpenseOpen, setIsAddExpenseOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Start closed on mobile
@@ -39,6 +41,14 @@ function App() {
   }
 
   if (!user) {
+    if (showHomePage) {
+      return (
+        <HomePage 
+          onSignIn={() => setShowHomePage(false)}
+          onSignUp={() => setShowHomePage(false)}
+        />
+      );
+    }
     return <Auth />;
   }
 
@@ -56,12 +66,11 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen w-full transition-colors duration-300
-      bg-gradient-to-br
-      ${isDark
-        ? 'from-slate-900 via-slate-800 to-slate-900'
-        : 'from-gray-50 via-white to-gray-100'}
-    `}>
+    <div className={`min-h-screen transition-colors duration-300 ${
+      isDark 
+        ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' 
+        : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
+    }`}>
       {/* Navigation Bar - Always visible */}
       <Navigation
         activeTab={activeTab}

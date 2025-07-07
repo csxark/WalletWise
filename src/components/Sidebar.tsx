@@ -166,7 +166,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpen, onCl
         </button>
 
         {/* Settings */}
-        <button 
+        {/* <button 
           className={`w-full flex items-center space-x-3 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl transition-all duration-300 ${
             isDark
               ? 'text-gray-300 hover:bg-slate-800 hover:text-yellow-300'
@@ -175,7 +175,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpen, onCl
         >
           <Settings className="h-4 w-4 sm:h-5 sm:w-5" />
           <span className="text-sm font-medium">Settings</span>
-        </button>
+        </button> */}
 
         {/* Sign Out */}
         <button 

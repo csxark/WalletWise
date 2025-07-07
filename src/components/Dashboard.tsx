@@ -302,7 +302,7 @@ const Dashboard = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Available Balance</p>
-              <p className={`text-sm sm:text-lg lg:text-2xl font-bold mt-1 sm:mt-2 ${availableBalance >= 0 ? 'text-purple-500 dark:text-purple-300' : 'text-rose-600 dark:text-rose-400'}`}>
+              <p className={`text-sm sm:text-lg lg:text-2xl font-bold mt-1 sm:mt-2 ${availableBalance >= 0 ? 'text-purple-500 dark:text-purple-400' : 'text-rose-600 dark:text-rose-400'}`}>
                 ₹{availableBalance.toLocaleString('en-IN')}
               </p>
               <div className="flex items-center space-x-1 mt-1 sm:mt-2">

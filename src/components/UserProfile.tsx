@@ -9,7 +9,7 @@ const UserProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     full_name: profile?.full_name || '',
-    phone: profile?.phone || '',
+    // phone: profile?.phone || '',
     date_of_birth: profile?.date_of_birth || '',
     occupation: profile?.occupation || '',
     monthly_income_target: profile?.monthly_income_target || 0,
@@ -21,7 +21,7 @@ const UserProfile = () => {
     if (profile) {
       setFormData({
         full_name: profile.full_name || '',
-        phone: profile.phone || '',
+        // phone: profile.phone || '',
         date_of_birth: profile.date_of_birth || '',
         occupation: profile.occupation || '',
         monthly_income_target: profile.monthly_income_target || 0,
@@ -53,7 +53,7 @@ const UserProfile = () => {
   const handleCancel = () => {
     setFormData({
       full_name: profile?.full_name || '',
-      phone: profile?.phone || '',
+      // phone: profile?.phone || '',
       date_of_birth: profile?.date_of_birth || '',
       occupation: profile?.occupation || '',
       monthly_income_target: profile?.monthly_income_target || 0,
@@ -111,7 +111,7 @@ const UserProfile = () => {
             </div>
             <button
               onClick={() => setIsEditing(!isEditing)}
-              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 dark:bg-slate-600 dark:hover:bg-slate-700 text-white rounded-xl transition-colors font-medium text-sm lg:text-base"
+              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 dark:bg-yellow-500 dark:hover:bg-yellow-600 text-white rounded-xl transition-colors font-medium text-sm lg:text-base"
             >
               {isEditing ? <X className="h-4 w-4" /> : <Edit3 className="h-4 w-4" />}
               <span>{isEditing ? 'Cancel' : 'Edit Profile'}</span>
@@ -137,7 +137,7 @@ const UserProfile = () => {
                   </div>
                 </div>
 
-                <div>
+                {/* <div>
                   <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
                     Phone Number
                   </label>
@@ -151,7 +151,7 @@ const UserProfile = () => {
                       placeholder="Enter your phone number"
                     />
                   </div>
-                </div>
+                </div> */}
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
@@ -227,14 +227,14 @@ const UserProfile = () => {
                 <button
                   type="button"
                   onClick={handleCancel}
-                  className="px-6 py-3 border border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors font-medium text-sm lg:text-base"
+                  className="px-6 py-3 border border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-red-600 transition-colors font-medium text-sm lg:text-base"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 dark:from-slate-600 dark:via-slate-700 dark:to-slate-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 dark:hover:from-slate-700 dark:hover:via-slate-800 dark:hover:to-slate-900 disabled:from-gray-400 disabled:via-gray-500 disabled:to-gray-600 text-white rounded-xl transition-all duration-200 font-semibold shadow-lg shadow-blue-500/25 dark:shadow-slate-700/25 hover:shadow-blue-500/40 dark:hover:shadow-slate-700/40 disabled:cursor-not-allowed text-sm lg:text-base"
+                  className="flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 dark:from-yellow-500 dark:via-yellow-600 dark:to-amber-600 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 dark:hover:from-yellow-500 dark:hover:via-yellow-600 dark:hover:to-amber-700 disabled:from-gray-400 disabled:via-gray-500 disabled:to-gray-600 text-white rounded-xl transition-all duration-200 font-semibold shadow-lg shadow-blue-500/25 dark:shadow-yellow-500/25 hover:shadow-blue-500/40 dark:hover:shadow-yellow-600/40 disabled:cursor-not-allowed text-sm lg:text-base"
                 >
                   {isSubmitting ? (
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
@@ -256,7 +256,7 @@ const UserProfile = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-slate-700 rounded-xl">
+                {/* <div className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-slate-700 rounded-xl">
                   <Phone className="h-5 w-5 text-gray-500 dark:text-gray-400" />
                   <div>
                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Phone</p>
@@ -264,10 +264,10 @@ const UserProfile = () => {
                       {profile?.phone || 'Not provided'}
                     </p>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-slate-700 rounded-xl">
-                  <Briefcase className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                  <Briefcase className="h-5 w-5 text-gray-500 dark:text-gray-400" /> 
                   <div>
                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Occupation</p>
                     <p className="text-gray-900 dark:text-white font-semibold text-sm lg:text-base">

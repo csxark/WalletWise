@@ -105,12 +105,30 @@ export const useAuth = () => {
   };
 
   const signOut = async () => {
-    setLoading(true);
     try {
-      const { error } = await supabase.auth.signOut();
-      if (error) throw error;
+      setLoading(true);
+      // Clear local state immediately
+      setSession(null);
+      setUser(null);
+      // Clear any stored session data from localStorage
+      const keys = Object.keys(localStorage);
+      keys.forEach(key => {
+        if (key.startsWith('supabase.auth.token') || key.startsWith('sb-')) {
+          localStorage.removeItem(key);
+        }
+      });
+      // Try to sign out from Supabase, but don't fail if it errors
+      try {
+        await supabase.auth.signOut();
+      } catch (supabaseError) {
+        // Ignore Supabase errors during sign out
+        console.log('Supabase sign out error (ignored):', supabaseError);
+      }
+      // Redirect to homepage after sign out
+      window.location.href = '/';
       return { error: null };
     } catch (error) {
+      console.error('Sign out error:', error);
       return { error: error as AuthError };
     } finally {
       setLoading(false);
