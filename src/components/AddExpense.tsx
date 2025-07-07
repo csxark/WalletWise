@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, X, Wallet, Sparkles, AlertCircle } from 'lucide-react';
+import { X, Wallet, Sparkles, AlertCircle } from 'lucide-react';
 import { useExpenses } from '../hooks/useExpenses';
 import { expenseCategories, incomeCategories } from '../data/categories';
 
