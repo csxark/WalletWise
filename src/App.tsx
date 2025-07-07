@@ -9,7 +9,7 @@ import AddExpense from './components/AddExpense';
 import Auth from './components/Auth';
 import { useTheme } from './hooks/useTheme';
 import { useAuth } from './hooks/useAuth';
-import Analytics from './components/Analytics';
+import { Analytics } from "@vercel/analytics/next"
 
 function App() {
   const [showHomePage, setShowHomePage] = useState(true);
