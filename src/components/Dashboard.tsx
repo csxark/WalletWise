@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { TrendingUp, TrendingDown, DollarSign, PiggyBank, Wallet, Gem, Star, Award, ChevronDown, Calendar, CreditCard, Target, Activity } from 'lucide-react';
+import { TrendingUp, TrendingDown, PiggyBank, Wallet, Gem, Star, Award, ChevronDown, Calendar, Activity } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { useExpenses } from '../hooks/useExpenses';
 import { useAuth } from '../hooks/useAuth';

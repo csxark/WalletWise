@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Eye, EyeOff, Mail, Lock, User, Wallet, Sparkles, Shield, AlertCircle, Phone, Calendar, Briefcase, Target, PiggyBank } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, User, Wallet, Sparkles, Shield, AlertCircle, Target, PiggyBank, X } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { useTheme } from '../hooks/useTheme';
 
-const Auth = () => {
+interface AuthProps {
+  onClose?: () => void;
+}
+
+const Auth: React.FC<AuthProps> = ({ onClose }) => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -126,13 +130,23 @@ const Auth = () => {
   };
 
   return (
-    <div className={`min-h-screen flex items-center justify-center p-3 sm:p-4 lg:p-6 ${
+    <div className={`min-h-screen w-full max-w-full flex items-center justify-center p-3 sm:p-4 lg:p-6 overflow-x-hidden overflow-y-auto ${
       isDark 
         ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' 
         : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
-    }`}>
-      <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
-        <div className={`backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border p-4 sm:p-6 lg:p-8 max-h-[95vh] overflow-y-auto ${
+    }`} style={{overflowX: 'hidden'}}>
+      <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl relative mx-auto flex flex-col max-h-[98vh] sm:max-h-[90vh] min-h-0">
+        {/* Close Button */}
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 z-10 p-2 rounded-full bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-600 dark:text-gray-300 shadow transition-all"
+            aria-label="Close"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        )}
+        <div className={`backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border p-4 sm:p-6 lg:p-8 flex-1 flex flex-col max-h-full overflow-y-auto ${
           isDark
             ? 'bg-slate-800/95 border-slate-700/50'
             : 'bg-white/95 border-gray-200/50'
@@ -181,7 +195,7 @@ const Auth = () => {
           )}
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 flex flex-col flex-1">
             {/* Personal Information Section for Sign Up */}
             {isSignUp && !isResetMode && (
               <div className="space-y-4 sm:space-y-6">

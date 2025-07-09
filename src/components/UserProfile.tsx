@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, Mail, Phone, Calendar, Briefcase, Target, PiggyBank, Wallet, Save, Edit3, X } from 'lucide-react';
+import { User, Mail, Calendar, Briefcase, Target, PiggyBank, Wallet, Save, Edit3, X } from 'lucide-react';
 import { useProfile } from '../hooks/useProfile';
 import { useAuth } from '../hooks/useAuth';
 

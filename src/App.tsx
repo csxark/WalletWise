@@ -9,7 +9,7 @@ import AddExpense from './components/AddExpense';
 import Auth from './components/Auth';
 import { useTheme } from './hooks/useTheme';
 import { useAuth } from './hooks/useAuth';
-
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [showHomePage, setShowHomePage] = useState(true);
@@ -37,7 +37,6 @@ function App() {
           <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">Loading WalletWise</h2>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Preparing your financial experience...</p>
         </div>
-        
       </div>
     );
   }
@@ -51,7 +50,7 @@ function App() {
         />
       );
     }
-    return <Auth />;
+    return <Auth onClose={() => setShowHomePage(true)} />;
   }
 
   const renderContent = () => {
@@ -81,7 +80,8 @@ function App() {
         isSidebarOpen={isSidebarOpen}
         onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
       />
-
+      <Analytics />
+      {/* Main Layout */}
       <div className="flex h-[calc(100vh-64px)] sm:h-[calc(100vh-80px)]">
         {/* Sidebar Overlay for Mobile */}
         {isSidebarOpen && (
