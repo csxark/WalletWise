@@ -11,7 +11,7 @@ import {
     Star,
     Plus,
     ArrowRight,
-    Play,
+    StarHalf,
     Menu,
     X,
     Moon,
@@ -48,7 +48,7 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
         },
         {
             icon: Shield,
-            title: "Bank-Grade Security",
+            title: "Enterprise-Grade Security",
             description: "Your financial data is protected with enterprise-level encryption and security protocols.",
             color: "from-green-500 to-green-600"
         },
@@ -83,14 +83,14 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
             name: "Arjun Mehta",
             role: "Computer Science Student",
             content: "WalletWise is perfect for managing my hostel expenses and pocket money. Helped me track where my ₹8,000 monthly allowance goes!",
-            rating: 5,
+            rating: 4.5,
             avatar: "AM"
         },
         {
             name: "Sneha Reddy",
             role: "Engineering Student",
             content: "Love how I can split mess bills and track study material costs with my roommates. The budget alerts saved me from overspending on books!",
-            rating: 5,
+            rating: 3.5,
             avatar: "SR"
         },
         {
@@ -102,18 +102,18 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
         }
     ];
 
-    // Enhanced FloatingElements with more Indian Rupee icons - Updated to use IndianRupee
+    //FloatingElements with more Indian Rupee icons - Updated to use IndianRupee
     const FloatingElements = () => (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
             {/* Animated floating shapes */}
-            <div className={`absolute top-20 left-10 w-20 h-20 rounded-full opacity-20 animate-bounce ${isDark ? 'bg-yellow-300' : 'bg-blue-400'}`} 
-                 style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
-            <div className={`absolute top-40 right-20 w-16 h-16 rounded-full opacity-15 animate-bounce ${isDark ? 'bg-amber-300' : 'bg-indigo-400'}`} 
-                 style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
-            <div className={`absolute bottom-40 left-20 w-12 h-12 rounded-full opacity-25 animate-bounce ${isDark ? 'bg-orange-400' : 'bg-purple-400'}`} 
-                 style={{ animationDelay: '2s', animationDuration: '5s' }}></div>
-            
-            {/* Enhanced floating IndianRupee icons - increased quantity */}
+            <div className={`absolute top-20 left-10 w-20 h-20 rounded-full opacity-20 animate-bounce ${isDark ? 'bg-yellow-300' : 'bg-blue-400'}`}
+                style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
+            <div className={`absolute top-40 right-20 w-16 h-16 rounded-full opacity-15 animate-bounce ${isDark ? 'bg-amber-300' : 'bg-indigo-400'}`}
+                style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
+            <div className={`absolute bottom-40 left-20 w-12 h-12 rounded-full opacity-25 animate-bounce ${isDark ? 'bg-orange-400' : 'bg-purple-400'}`}
+                style={{ animationDelay: '2s', animationDuration: '5s' }}></div>
+
+            {/* floating IndianRupee icons - increased quantity */}
             <div className="absolute top-32 right-32 animate-float opacity-10">
                 <IndianRupee className="w-8 h-8 text-green-500" />
             </div>
@@ -141,48 +141,48 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
     const ParallaxBackground = () => (
         <div className="absolute inset-0 overflow-x-hidden">
             {/* Gradient mesh background */}
-            <div className={`absolute inset-0 opacity-30 ${isDark 
-                ? 'bg-gradient-to-br from-yellow-900/20 via-amber-900/10 to-orange-900/20' 
+            <div className={`absolute inset-0 opacity-30 ${isDark
+                ? 'bg-gradient-to-br from-yellow-900/20 via-amber-900/10 to-orange-900/20'
                 : 'bg-gradient-to-br from-blue-50/50 via-indigo-50/30 to-purple-50/50'}`}></div>
-            
+
             {/* Animated gradient orbs */}
             <div className={`absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl animate-pulse ${isDark ? 'bg-yellow-500' : 'bg-blue-500'}`}
-                 style={{ transform: `translateY(${scrollY * 0.1}px)` }}></div>
+                style={{ transform: `translateY(${scrollY * 0.1}px)` }}></div>
             <div className={`absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-15 blur-3xl animate-pulse ${isDark ? 'bg-amber-500' : 'bg-indigo-500'}`}
-                 style={{ transform: `translateY(${scrollY * -0.1}px)`, animationDelay: '1s' }}></div>
+                style={{ transform: `translateY(${scrollY * -0.1}px)`, animationDelay: '1s' }}></div>
             <div className={`absolute top-1/2 left-1/2 w-64 h-64 rounded-full opacity-10 blur-3xl animate-pulse ${isDark ? 'bg-orange-500' : 'bg-purple-500'}`}
-                 style={{ transform: `translate(-50%, -50%) translateY(${scrollY * 0.05}px)`, animationDelay: '2s' }}></div>
+                style={{ transform: `translate(-50%, -50%) translateY(${scrollY * 0.05}px)`, animationDelay: '2s' }}></div>
         </div>
     );
 
     return (
         <div className={`min-h-screen w-full max-w-full transition-all duration-500 relative overscroll-none overflow-x-hidden ${isDark
-                ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'
-                : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
-            }`} style={{overflowX: 'hidden', overflowY: 'auto'}}>
-            
+            ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'
+            : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
+            }`} style={{ overflowX: 'hidden', overflowY: 'auto' }}>
+
             {/* Global background animations */}
             <ParallaxBackground />
-            
+
             {/* Navigation with glassmorphism effect */}
             <nav className={`backdrop-blur-xl shadow-2xl border-b sticky top-0 z-50 transition-all overflow-x-hidden duration-300 ${isDark
-                    ? 'bg-slate-900/80 border-slate-700/50 shadow-yellow-500/10'
-                    : 'bg-white/80 border-gray-200/50 shadow-blue-500/10'
+                ? 'bg-slate-900/80 border-slate-700/50 shadow-yellow-500/10'
+                : 'bg-white/80 border-gray-200/50 shadow-blue-500/10'
                 }`}>
                 <div className="max-w-7xl overflow-x-hidden mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16 lg:h-20">
                         {/* Animated Logo */}
                         <div className="flex items-center space-x-3 group">
                             <div className={`h-10 w-10 lg:h-12 lg:w-12 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-12 ${isDark
-                                    ? 'bg-gradient-to-br from-yellow-500 via-yellow-500 to-amber-500 shadow-yellow-500/25'
-                                    : 'bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 shadow-blue-500/25'
+                                ? 'bg-gradient-to-br from-yellow-500 via-yellow-500 to-amber-500 shadow-yellow-500/25'
+                                : 'bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 shadow-blue-500/25'
                                 }`}>
                                 <Wallet className="h-5 w-5 lg:h-7 lg:w-7 text-white transition-transform duration-300 group-hover:scale-110" />
                             </div>
                             <div>
                                 <h1 className={`text-xl lg:text-2xl font-bold bg-clip-text text-transparent transition-all duration-300 ${isDark
-                                        ? 'bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200'
-                                        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800'
+                                    ? 'bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200'
+                                    : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800'
                                     }`}>
                                     WalletWise
                                 </h1>
@@ -210,8 +210,8 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
                             <button
                                 onClick={toggleTheme}
                                 className={`p-2 lg:p-3 rounded-xl transition-all duration-300 hover:scale-110 hover:rotate-180 ${isDark
-                                        ? 'text-gray-300 hover:bg-slate-800 hover:text-yellow-300'
-                                        : 'text-gray-600 hover:bg-blue-50 hover:text-blue-600'
+                                    ? 'text-gray-300 hover:bg-slate-800 hover:text-yellow-300'
+                                    : 'text-gray-600 hover:bg-blue-50 hover:text-blue-600'
                                     }`}
                             >
                                 {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -228,8 +228,8 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
                                 <button
                                     onClick={onSignUp}
                                     className={`px-4 lg:px-6 py-2 lg:py-3 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl transform hover:-translate-y-1 ${isDark
-                                            ? 'bg-gradient-to-r from-yellow-500 via-yellow-600 to-amber-700 hover:from-yellow-600 hover:via-yellow-700 hover:to-amber-800 shadow-yellow-500/25'
-                                            : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 shadow-blue-500/25'
+                                        ? 'bg-gradient-to-r from-yellow-500 via-yellow-600 to-amber-700 hover:from-yellow-600 hover:via-yellow-700 hover:to-amber-800 shadow-yellow-500/25'
+                                        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 shadow-blue-500/25'
                                         }`}
                                 >
                                     Get Started
@@ -265,8 +265,8 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
                                 <button
                                     onClick={onSignUp}
                                     className={`text-left px-4 py-3 rounded-xl font-semibold text-white transition-all duration-200 shadow-lg ${isDark
-                                            ? 'bg-gradient-to-r from-yellow-500 via-yellow-600 to-amber-600 shadow-yellow-500/25'
-                                            : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 shadow-blue-500/25'
+                                        ? 'bg-gradient-to-r from-yellow-500 via-yellow-600 to-amber-600 shadow-yellow-500/25'
+                                        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 shadow-blue-500/25'
                                         }`}
                                 >
                                     Get Started
@@ -285,8 +285,8 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
                         {/* Animated Badge */}
                         <div className="flex justify-center mb-8">
                             <div className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full border text-sm font-medium transition-all duration-300 hover:scale-105 animate-fadeInUp ${isDark
-                                    ? 'bg-yellow-900/20 border-yellow-800 text-yellow-400'
-                                    : 'bg-blue-50 border-blue-200 text-blue-700'
+                                ? 'bg-yellow-900/20 border-yellow-800 text-yellow-400'
+                                : 'bg-blue-50 border-blue-200 text-blue-700'
                                 }`}>
                                 <Sparkles className="h-4 w-4 animate-spin" />
                                 <span>Trusted by 50+ users across India</span>
@@ -295,27 +295,27 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
 
                         {/* Animated Main Heading */}
                         <h1 className={`text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 lg:mb-8 bg-clip-text text-transparent animate-fadeInUp ${isDark
-                                ? 'bg-gradient-to-r from-white via-gray-100 to-gray-200'
-                                : 'bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900'
+                            ? 'bg-gradient-to-r from-white via-gray-100 to-gray-200'
+                            : 'bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900'
                             }`} style={{ animationDelay: '0.2s' }}>
                             Smart Finance
                             <br />
                             <span className={`bg-clip-text text-transparent animate-pulse ${isDark
-                                    ? 'bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200'
-                                    : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800'
+                                ? 'bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200'
+                                : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800'
                                 }`}>
                                 Made Simple
                             </span>
                         </h1>
 
                         {/* Animated Subtitle */}
-                        <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 lg:mb-12 max-w-3xl mx-auto leading-relaxed animate-fadeInUp" 
-                           style={{ animationDelay: '0.4s' }}>
+                        <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 lg:mb-12 max-w-3xl mx-auto leading-relaxed animate-fadeInUp"
+                            style={{ animationDelay: '0.4s' }}>
                             Take control of your financial future with insights, beautiful analytics, and smart recommendations that help you save more and spend wisely.
                         </p>
 
                         {/* Animated CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12 lg:mb-16 animate-fadeInUp" 
+                        {/* <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12 lg:mb-16 animate-fadeInUp" 
                              style={{ animationDelay: '0.6s' }}>
                             <button
                                 onClick={onSignUp}
@@ -334,11 +334,11 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
                                 </div>
                                 <span>Watch Demo</span>
                             </button>
-                        </div>
+                        </div> */}
 
                         {/* Animated Stats */}
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-4xl mx-auto animate-fadeInUp" 
-                             style={{ animationDelay: '0.8s' }}>
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-4xl mx-auto animate-fadeInUp"
+                            style={{ animationDelay: '0.8s' }}>
                             {[
                                 { value: "50+", label: "Active Users" },
                                 { value: "₹100K+", label: "Money Managed" },
@@ -362,14 +362,14 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12 lg:mb-20">
                         <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent ${isDark
-                                ? 'bg-gradient-to-r from-white via-gray-100 to-gray-200'
-                                : 'bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900'
+                            ? 'bg-gradient-to-r from-white via-gray-100 to-gray-200'
+                            : 'bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900'
                             }`}>
                             Powerful Features for
                             <br />
                             <span className={`bg-clip-text text-transparent ${isDark
-                                    ? 'bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200'
-                                    : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800'
+                                ? 'bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200'
+                                : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800'
                                 }`}>
                                 Smart Finance
                             </span>
@@ -386,8 +386,8 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
                                 <div
                                     key={index}
                                     className={`group p-6 lg:p-8 rounded-2xl lg:rounded-3xl shadow-xl border backdrop-blur-sm hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 animate-fadeInUp ${isDark
-                                            ? 'bg-slate-800/95 border-slate-700 hover:border-slate-600'
-                                            : 'bg-white/95 border-gray-100 hover:border-gray-200'
+                                        ? 'bg-slate-800/95 border-slate-700 hover:border-slate-600'
+                                        : 'bg-white/95 border-gray-100 hover:border-gray-200'
                                         }`}
                                     style={{ animationDelay: `${index * 0.1}s` }}
                                 >
@@ -407,18 +407,18 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
                 </div>
             </section>
 
-            {/* How It Works Section with Enhanced Animations */}
+            {/* How It Works Section with Animations */}
             <section className={`py-16 lg:py-24 relative overflow-x-hidden ${isDark ? 'bg-slate-800/50' : 'bg-gray-50/50'}`}>
                 <div className="absolute inset-0 overflow-hidden">
                     <div className={`absolute top-10 left-10 w-32 h-32 rounded-full opacity-10 blur-2xl animate-pulse ${isDark ? 'bg-yellow-500' : 'bg-blue-500'}`}></div>
                     <div className={`absolute bottom-10 right-10 w-40 h-40 rounded-full opacity-5 blur-2xl animate-pulse ${isDark ? 'bg-amber-500' : 'bg-indigo-500'}`} style={{ animationDelay: '1s' }}></div>
                 </div>
-                
+
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-12 lg:mb-20">
                         <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent ${isDark
-                                ? 'bg-gradient-to-r from-white via-gray-100 to-gray-200'
-                                : 'bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900'
+                            ? 'bg-gradient-to-r from-white via-gray-100 to-gray-200'
+                            : 'bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900'
                             }`}>
                             How WalletWise Works
                         </h2>
@@ -493,16 +493,20 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
             <section id="testimonials" className="py-16 lg:py-24 relative overflow-x-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12 lg:mb-20">
-                        <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent ${isDark
-                                ? 'bg-gradient-to-r from-white via-gray-100 to-gray-200'
-                                : 'bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900'
-                            }`}>
+                        <h2
+                            className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent ${isDark
+                                    ? 'bg-gradient-to-r from-white via-gray-100 to-gray-200'
+                                    : 'bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900'
+                                }`}
+                        >
                             Loved by Users
                             <br />
-                            <span className={`bg-clip-text text-transparent ${isDark
-                                    ? 'bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200'
-                                    : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800'
-                                }`}>
+                            <span
+                                className={`bg-clip-text text-transparent ${isDark
+                                        ? 'bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200'
+                                        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800'
+                                    }`}
+                            >
                                 Across India
                             </span>
                         </h2>
@@ -512,59 +516,93 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                        {testimonials.map((testimonial, index) => (
-                            <div
-                                key={index}
-                                className={`p-6 lg:p-8 rounded-2xl lg:rounded-3xl shadow-xl border backdrop-blur-sm hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 animate-fadeInUp ${isDark
-                                        ? 'bg-slate-800/95 border-slate-700 hover:border-slate-600'
-                                        : 'bg-white/95 border-gray-100 hover:border-gray-200'
-                                    }`}
-                                style={{ animationDelay: `${index * 0.2}s` }}
-                            >
-                                <div className="flex items-center space-x-1 mb-4 lg:mb-6">
-                                    {[...Array(testimonial.rating)].map((_, i) => (
-                                        <Star key={i} className={`h-5 w-5 fill-current transition-all duration-300 hover:scale-110 ${isDark ? 'text-yellow-400' : 'text-yellow-500'}`} />
-                                    ))}
-                                </div>
-                                <p className="text-gray-600 dark:text-gray-300 mb-6 lg:mb-8 leading-relaxed italic">
-                                    "{testimonial.content}"
-                                </p>
-                                <div className="flex items-center space-x-3">
-                                    <div className={`w-10 h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 hover:scale-110 ${isDark ? 'bg-yellow-600' : 'bg-blue-600'}`}>
-                                        {testimonial.avatar}
+                        {testimonials.map((testimonial, index) => {
+                            const rating = testimonial.rating;
+                            const fullStars = Math.floor(rating);
+                            const decimalPart = rating - fullStars;
+                            const hasHalfStar = decimalPart >= 0.25 && decimalPart < 0.75;
+                            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+                            return (
+                                <div
+                                    key={index}
+                                    className={`p-6 lg:p-8 rounded-2xl lg:rounded-3xl shadow-xl border backdrop-blur-sm hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 animate-fadeInUp ${isDark
+                                            ? 'bg-slate-800/95 border-slate-700 hover:border-slate-600'
+                                            : 'bg-white/95 border-gray-100 hover:border-gray-200'
+                                        }`}
+                                    style={{ animationDelay: `${index * 0.2}s` }}
+                                >
+                                    {/* Stars */}
+                                    <div className="flex items-center space-x-1 mb-4 lg:mb-6">
+                                        {[...Array(fullStars)].map((_, i) => (
+                                            <Star
+                                                key={`full-star-${i}`}
+                                                className={`h-5 w-5 fill-current ${isDark ? 'text-yellow-400' : 'text-yellow-500'
+                                                    }`}
+                                            />
+                                        ))}
+                                        {hasHalfStar && (
+                                            <StarHalf
+                                                key={`half-star`}
+                                                className={`h-5 w-5 fill-current ${isDark ? 'text-yellow-400' : 'text-yellow-500'
+                                                    }`}
+                                            />
+                                        )}
+                                        {[...Array(emptyStars)].map((_, i) => (
+                                            <Star
+                                                key={`empty-star-${i}`}
+                                                className={`h-5 w-5 ${isDark ? 'text-gray-600' : 'text-gray-300'
+                                                    }`}
+                                                fill="none"
+                                                stroke="currentColor"
+                                            />
+                                        ))}
                                     </div>
-                                    <div>
-                                        <div className="font-semibold text-gray-900 dark:text-white">
-                                            {testimonial.name}
+
+                                    <p className="text-gray-600 dark:text-gray-300 mb-6 lg:mb-8 leading-relaxed italic">
+                                        "{testimonial.content}"
+                                    </p>
+
+                                    <div className="flex items-center space-x-3">
+                                        <div
+                                            className={`w-10 h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center font-bold text-white transition-all duration-300 hover:scale-110 ${isDark ? 'bg-yellow-600' : 'bg-blue-600'
+                                                }`}
+                                        >
+                                            {testimonial.avatar}
                                         </div>
-                                        <div className="text-sm text-gray-500 dark:text-gray-400">
-                                            {testimonial.role}
+                                        <div>
+                                            <div className="font-semibold text-gray-900 dark:text-white">
+                                                {testimonial.name}
+                                            </div>
+                                            <div className="text-sm text-gray-500 dark:text-gray-400">
+                                                {testimonial.role}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </section>
 
-            {/* Enhanced CTA Section */}
+            {/* CTA Section */}
             <section className="py-16 lg:py-24 relative overflow-x-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className={`relative overflow-hidden rounded-3xl lg:rounded-[2rem] p-8 lg:p-16 text-center transition-all duration-500 hover:scale-[1.02] ${isDark
-                            ? 'bg-gradient-to-br from-yellow-900/20 via-amber-900/20 to-orange-900/20 border border-yellow-500/20'
-                            : 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border border-blue-200'
+                        ? 'bg-gradient-to-br from-yellow-900/20 via-amber-900/20 to-orange-900/20 border border-yellow-500/20'
+                        : 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border border-blue-200'
                         }`}>
                         <div className="relative z-10">
                             <h2 className={`text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 lg:mb-8 bg-clip-text text-transparent animate-fadeInUp ${isDark
-                                    ? 'bg-gradient-to-r from-white via-gray-100 to-gray-200'
-                                    : 'bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900'
+                                ? 'bg-gradient-to-r from-white via-gray-100 to-gray-200'
+                                : 'bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900'
                                 }`}>
                                 Ready to Transform
                                 <br />
                                 <span className={`bg-clip-text text-transparent ${isDark
-                                        ? 'bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200'
-                                        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800'
+                                    ? 'bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200'
+                                    : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800'
                                     }`}>
                                     Your Finances?
                                 </span>
@@ -576,8 +614,8 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
                                 <button
                                     onClick={onSignUp}
                                     className={`group flex items-center space-x-3 px-8 lg:px-12 py-4 lg:py-5 rounded-2xl font-bold text-lg lg:text-xl text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl transform hover:-translate-y-2 ${isDark
-                                            ? 'bg-gradient-to-r from-yellow-600 via-yellow-700 to-amber-800 hover:from-yellow-700 hover:via-yellow-800 hover:to-amber-900 shadow-yellow-500/30'
-                                            : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 shadow-blue-500/30'
+                                        ? 'bg-gradient-to-r from-yellow-600 via-yellow-700 to-amber-800 hover:from-yellow-700 hover:via-yellow-800 hover:to-amber-900 shadow-yellow-500/30'
+                                        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 shadow-blue-500/30'
                                         }`}
                                 >
                                     <span>Get Started Free</span>
@@ -601,7 +639,7 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
                 </div>
             </section>
 
-            {/* Enhanced Footer */}
+            {/* Footer */}
             <footer className={`border-t transition-all duration-300 overflow-x-hidden ${isDark ? 'border-slate-700 bg-slate-900/50' : 'border-gray-200 bg-gray-50/50'}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -609,15 +647,15 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
                         <div className="lg:col-span-2">
                             <div className="flex items-center space-x-3 mb-4 group">
                                 <div className={`h-10 w-10 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-12 ${isDark
-                                        ? 'bg-gradient-to-br from-yellow-500 via-yellow-500 to-amber-500'
-                                        : 'bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700'
+                                    ? 'bg-gradient-to-br from-yellow-500 via-yellow-500 to-amber-500'
+                                    : 'bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700'
                                     }`}>
                                     <Wallet className="h-5 w-5 text-white" />
                                 </div>
                                 <div>
                                     <h3 className={`text-xl font-bold bg-clip-text text-transparent ${isDark
-                                            ? 'bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200'
-                                            : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800'
+                                        ? 'bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200'
+                                        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800'
                                         }`}>
                                         WalletWise
                                     </h3>
@@ -628,8 +666,8 @@ const HomePage: React.FC<HomePageProps> = ({ onSignIn, onSignUp }) => {
                             </p>
                             <div className="flex items-center space-x-4">
                                 <div className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-300 hover:scale-105 ${isDark ? 'bg-slate-800' : 'bg-white'}`}>
-                                    <Shield className="h-4 w-4 text-green-500" />
-                                    <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Bank-Grade Security</span>
+                                    <Shield className="h-4 w-4 text-emerald-500" />
+                                    <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Enterprise-Grade Security</span>
                                 </div>
                             </div>
                         </div>

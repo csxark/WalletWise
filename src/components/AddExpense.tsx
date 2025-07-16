@@ -51,10 +51,10 @@ const AddExpense: React.FC<AddExpenseProps> = ({ isOpen, onClose }) => {
         date: new Date().toISOString().split('T')[0],
         type: 'expense'
       });
-      
+
       // Refresh the data to ensure UI is updated
       await fetchExpenses();
-      
+
       onClose();
     } catch (error) {
       console.error('Error adding expense:', error);
@@ -106,22 +106,20 @@ const AddExpense: React.FC<AddExpenseProps> = ({ isOpen, onClose }) => {
             <button
               type="button"
               onClick={() => setFormData({ ...formData, type: 'expense', category: '' })}
-              className={`flex-1 py-2 sm:py-3 px-3 sm:px-4 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
-                formData.type === 'expense'
+              className={`flex-1 py-2 sm:py-3 px-3 sm:px-4 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${formData.type === 'expense'
                   ? 'bg-white dark:bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 dark:text-white shadow-lg'
                   : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
-              }`}
+                }`}
             >
               Expense
             </button>
             <button
               type="button"
               onClick={() => setFormData({ ...formData, type: 'income', category: '' })}
-              className={`flex-1 py-2 sm:py-3 px-3 sm:px-4 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
-                formData.type === 'income'
+              className={`flex-1 py-2 sm:py-3 px-3 sm:px-4 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${formData.type === 'income'
                   ? 'bg-white dark:bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 dark:text-white shadow-lg'
                   : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
-              }`}
+                }`}
             >
               Income
             </button>
@@ -175,12 +173,22 @@ const AddExpense: React.FC<AddExpenseProps> = ({ isOpen, onClose }) => {
             <input
               type="text"
               value={formData.description}
-              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              onChange={(e) => {
+                const value = e.target.value;
+                if (value.length <= 100) {
+                  setFormData({ ...formData, description: value });
+                  if (error) setError('');
+                }
+              }}
               className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 dark:border-slate-600 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-gray-900 dark:text-white font-medium text-sm sm:text-base"
               placeholder="Enter description..."
               required
             />
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 text-right select-none">
+              {formData.description.length} / 100
+            </p>
           </div>
+
 
           {/* Date */}
           <div>

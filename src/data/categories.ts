@@ -7,11 +7,11 @@ export const expenseCategories = [
   { name: 'Healthcare', color: '#2ecc71', icon: '🏥' },
   { name: 'Education', color: '#f39c12', icon: '📚' },
   { name: 'Travel', color: '#1abc9c', icon: '✈️' },
-  { name: 'Other', color: '#95a5a6', icon: '📋' },
   { name: 'Gifts & Donations', color: '#f1c40f', icon: '🎁' },
   { name: 'Personal Care', color: '#e67e22', icon: '🧴' },
   { name: 'Subscriptions', color: '#8e44ad', icon: '📅' },
-  { name: 'Home Improvement', color: '#d35400', icon: '🔨' }
+  { name: 'Home Improvement', color: '#d35400', icon: '🔨' },
+  { name: 'Other', color: '#95a5a6', icon: '📋' }
 ];
 
 export const incomeCategories = [

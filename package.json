@@ -1,7 +1,7 @@
 {
   "name": "WalletWise",
   "private": true,
-  "version": "2.4.3",
+  "version": "2.4.7",
   "type": "module",
   "scripts": {
     "dev": "vite",

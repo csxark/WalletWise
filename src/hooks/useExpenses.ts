@@ -185,8 +185,7 @@ export const useExpenses = () => {
 
   const getCategoryColor = (categoryName: string): string => {
     const colors = [
-      '#EF4444', '#F59E0B', '#8B5CF6', '#EC4899', '#06B6D4',
-      '#10B981', '#3B82F6', '#F97316', '#6B7280'
+      '#ff6b35','#4ecdc4','#9b59b6','#e74c3c','#3498db','#2ecc71','#f39c12','#1abc9c','#95a5a6','#f1c40f','#e67e22','#8e44ad','#d35400','#10b981','#3b82f6','#8b5cf6','#f59e0b','#ec4899','#64748b',
     ];
     
     const index = categoryName.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % colors.length;

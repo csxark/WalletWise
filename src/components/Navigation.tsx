@@ -94,7 +94,7 @@ const Navigation: React.FC<NavigationProps> = ({
               }`}
             >
               <PlusCircle className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 transition-transform duration-300 group-hover:rotate-180" />
-              <span className="hidden xs:inline font-semibold text-xs sm:text-sm lg:text-base">Add</span>
+              <span className="font-semibold text-xs sm:text-sm lg:text-base">Add</span>
               <span className="hidden sm:inline font-semibold text-xs sm:text-sm lg:text-base">Transaction</span>
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             </button>
