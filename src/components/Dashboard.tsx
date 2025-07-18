@@ -556,7 +556,7 @@ const Dashboard = () => {
                     outerRadius={60}
                     fill="#8884d8"
                     dataKey="amount"
-                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                    label={({ percent }) => ` ${(percent * 100).toFixed(0)}%`}
                     labelLine={false}
                     stroke="#ffffff"
                     strokeWidth={2}
